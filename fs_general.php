@@ -4,13 +4,13 @@
 <title>FactSage.com - Introduction to FactSage</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <STYLE>
-A:link {
+#body A:link {
 	FONT-WEIGHT: bold; COLOR: #0066cc; TEXT-DECORATION: none
 }
-A:visited {
+#body A:visited {
 	COLOR: #660000; FONT-WEIGHT:bold; TEXT-DECORATION: none
 }
-A:hover {
+#body A:hover {
 	COLOR: #000066; BACKGROUND-COLOR: lightgrey; TEXT-DECORATION: none
 }
 .link {
@@ -19,7 +19,7 @@ A:hover {
 </STYLE>
 </head>
 
-<body bgcolor="#666666">
+<body bgcolor="#666666" id="body">
 <table width="95%" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#000066">
   <tr>
     <td><table width="100%" border="0" align="center" cellpadding="15" cellspacing="0" bgcolor="#999999">
