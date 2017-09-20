@@ -1,7 +1,6 @@
- 
- /* Dropdown Button */
+  /* Dropdown Button */
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #134074;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -9,13 +8,12 @@
     cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* content of the dropdozn menu, hidden by default */
+/* content of the dropdown menu, hidden by default */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -25,7 +23,7 @@
     z-index: 1;
 }
 
-/* Links inside the dropdown */
+
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -34,41 +32,47 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
 
-/* Show the dropdown menu on hover */
+/* Shows the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #325791;
 } 
 
-/* Personal */
-
+/* Hides the bullet points in the menus */
 ul {
 	list-style-type: none;
+	padding-left: 0px;
 }
 
+/* Puts a left margin on the horizontal menu  */
 .horizontal-menu{
 	position: relative;
 	left: 200px;
 }
 
+/* Displays the menu horizontally */
 .horizontal-button {
 	display: inline;
 }
 
-
+/* Style fo each button in vetical menu */
 .vertical-button {
 	display: block;
 	width: 130px;
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	text-align: center;
 }
 
+/* Apply same style than the horizontal menu */
 .vertical-button a{
 	text-decoration: none;
 	color: white;
@@ -76,14 +80,16 @@ ul {
 
 .vertical-menu{
 	 width:150px;
+	 margin: 0px;
 }
 
 .vertical-button:hover {
-    background-color: #3e8e41;
+    background-color: #325791;
 } 
 
+/* Position fo the web-page content */
 #web-page-content{
 	position: absolute;
-	left: 300px;
-	top: 150px;
+	left: 200px;
+	top: 100px;
 }
