@@ -44,6 +44,19 @@ function displayStationInfo(station) {
   $('#station-terminals-unavailaible').text(station.dx);
 }
 
+function updateMap(station) {
+	pos = {lat: station.la, lng: station.lo};
+	map = new google.maps.Map(document.getElementById('map'), {
+	  center: pos,
+	  zoom: 17
+	});
+	var marker = new google.maps.Marker({
+	  position: pos,
+	  map: map
+	});
+
+}
+
 //Get JSON from bixi
 $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
   var stationNames = json.stations.map(function(station){
@@ -59,6 +72,7 @@ $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
       }
     });
     displayStationInfo(stationInfo[0]);
+    updateMap(stationInfo[0]);
   }
 
 
@@ -68,10 +82,11 @@ $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
       source: stationNames,
       select: fieldSelected
     });
-
-    map = new google.maps.Map(document.getElementById('map'), {
-		  center: {lat: -34.397, lng: 150.644},
-		  zoom: 8
+	
+	var montreal = {lat: 45.5016889, lng: -73.5672559};
+    var map = new google.maps.Map(document.getElementById('map'), {
+		  center: montreal,
+		  zoom: 12
 		});
   });
 
