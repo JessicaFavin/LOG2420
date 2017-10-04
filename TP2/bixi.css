@@ -1,3 +1,10 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 header {
 	background-color: #389bd8;
 	padding: 0;
@@ -20,11 +27,6 @@ header a:hover {
 	box-sizing: border-box;
 }
 
-.brand {
-	font-size: 200%;
-	
-}
-
 .nav-tabs>li.active>a {
 	background-color: #38d17f !important; 
 	color: white !important;
@@ -33,6 +35,11 @@ header a:hover {
 .globe {
 	float: right;
 }
+
+.brand {
+	font-size: 200%;
+}
+
 
 #carte {
 	display: flex;
@@ -56,4 +63,5 @@ header a:hover {
 	flex-basis: 100%;
 	padding: 15px;
 	box-sizing: border-box;
+	height: 400px;
 }
