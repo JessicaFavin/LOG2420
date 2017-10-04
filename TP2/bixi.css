@@ -53,26 +53,25 @@ input {
   background-color: #D33E43;
 }
 
-#carte {
-	display: flex;
-	flex-wrap: wrap;
-}
-
 #location{
-	flex-basis: 40%;
+	width: 40%;
+	display: inline-block;
 	border-right: 1px lightgrey solid;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
 #state {
-	flex-basis: 60%;
+	width: 60%;
+	display: inline-block;
+	float: right;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
 #map {
-	flex-basis: 100%;
+	
+	width: 100%;
 	padding: 15px;
 	box-sizing: border-box;
 	height: 400px;
