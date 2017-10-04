@@ -34,15 +34,45 @@
 			<div class="tab-content">
 				<div id="carte" class="tab-pane fade in active">
 					<div id="location">
-						<h3>Localisation:</h3>
-						<hr>
 						<div class="ui-widget">
 							<input type="text" name="station-name" value="" id="station-name-id">
 						</div>
+						<h3>Localisation:</h3>
+						<hr>
 						<h4 id="location-name">Aucune Localisation</h4>
 					</div>
 					<div id="state">
 						<h3>État de la station de vélos</h3>
+						<table class="table table-stripped">
+							<thead>
+					    </thead>
+							<tbody>
+								<tr>
+									<td>ID Station</td>
+									<td class="station-info" id="station-id">-</td>
+									<td>Vélos disponibles</td>
+									<td class="station-info" id="station-bicycles-availaible">-</td>
+								</tr>
+								<tr>
+									<td>Bloquée</td>
+									<td class="station-info" id="station-blocked">-</td>
+									<td>Bornes disponibles</td>
+									<td class="station-info" id="station-terminals-availaible">-</td>
+								</tr>
+								<tr>
+									<td>Suspendue</td>
+									<td class="station-info" id="station-suspended">-</td>
+									<td>Vélos indisponibles</td>
+									<td class="station-info" id="station-bicycles-unavailaible">-</td>
+								</tr>
+								<tr>
+									<td>Hors service</td>
+									<td class="station-info" id="station-ooo">-</td>
+									<td>Bornes indisponibles</td>
+									<td class="station-info" id="station-terminals-unavailaible">-</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<div id="map">
 						<h3>Map</h3>

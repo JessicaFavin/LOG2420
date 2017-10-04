@@ -9,39 +9,39 @@ function getStringFromBoolean(bool) {
 // Display Info into table
 function displayStationInfo(station) {
   $('#location-name').text(station.s);
-  $('station-id').text(station.id);
+  $('#station-id').text(station.id);
 
-  $('station-blocked')
+  $('#station-blocked')
     .removeClass("true false")
     .addClass(station.b)
     .text(getStringFromBoolean(station.b));
-  $('station-suspended')
+  $('#station-suspended')
     .removeClass("true false")
     .addClass(station.su)
     .text(getStringFromBoolean(station.su));
-  $('station-ooo')
+  $('#station-ooo')
     .removeClass("true false")
     .addClass(station.m)
     .text(getStringFromBoolean(station.m));
 
-  $('station-bicycles-availaible')
+  $('#station-bicycles-availaible')
     .removeClass("zero")
     .text(station.ba);
 
   if(station.ba == 0) {
-    $('station-bicycles-availaible').addClass("zero");
+    $('#station-bicycles-availaible').addClass("zero");
   }
 
-  $('station-terminals-availaible')
+  $('#station-terminals-availaible')
     .removeClass("zero")
     .text(station.da);
 
   if(station.da == 0) {
-    $('station-terminals-availaible').addClass("zero");
+    $('#station-terminals-availaible').addClass("zero");
   }
 
-  $('station-bicycles-unavailaible').text(station.bx);
-  $('station-terminals-unavailaible').text(station.dx);
+  $('#station-bicycles-unavailaible').text(station.bx);
+  $('#station-terminals-unavailaible').text(station.dx);
 }
 
 //Get JSON from bixi
