@@ -5,9 +5,11 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="bixi.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<title>Bixi</title>
 	</head>
 	<body>
@@ -18,5 +20,13 @@
 				<a href="#" class="globe"><i class="fa fa-globe" aria-hidden="true"></i></a>
 			</nav>
 		</header>
+
+		<main>
+			<div class="ui-widget">
+				<input type="text" name="station-name" value="" id="station-name-id">
+			</div>
+			<h2 id="location-name">Aucune Localisation</h2>
+		</main>
+
 	</body>
 </html>
