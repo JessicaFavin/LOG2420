@@ -6,17 +6,47 @@
 		<link rel="stylesheet" href="bixi.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjonwWBWoE1W6L8sU7KPl7zkRLSaPNC2o"></script> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<title>Bixi</title>
 	</head>
 	<body>
 		<header>
-			<nav>
-				<a href="#">Vélo Montréal</a>
-				<a href="#"> Accueil</a>
+			<nav class="navbar navbar-light">
+				<a class="brand" href="#">Vélo Montréal</a>
+				<a href="#" > Accueil</a>
 				<a href="#" class="globe"><i class="fa fa-globe" aria-hidden="true"></i></a>
 			</nav>
 		</header>
+		
+		<main>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#carte">Carte des stations</a></li>
+				<li><a data-toggle="tab" href="#liste">Liste  des stations</a></li>
+			</ul>
+			
+			<div class="tab-content">
+				<div id="carte" class="tab-pane fade in active">
+					<div id="location">
+						<h3>Localisation:</h3>
+						<hr>
+					</div>
+					<div id="state">
+						<h3>État de la station de vélos</h3>
+					</div>
+					<div id="map">
+						<h3>Map</h3>
+						<div id="map"></div>
+					</div>
+				</div>
+				<div id="liste" class="tab-pane fade">
+					<h3>Liste  des stations</h3>
+					<p>Some content in menu 2.</p>
+				</div>
+			</div>
+		</main>
 	</body>
 </html>
