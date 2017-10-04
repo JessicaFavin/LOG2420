@@ -41,26 +41,25 @@ header a:hover {
 }
 
 
-#carte {
-	display: flex;
-	flex-wrap: wrap;
-}
-
 #location{
-	flex-basis: 50%;
+	width: 50%;
+	display: inline-block;
 	border-right: 1px lightgrey solid;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
 #state {
-	flex-basis: 50%;
+	width: 50%;
+	display: inline-block;
+	float: right;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
 #map {
-	flex-basis: 100%;
+	
+	width: 100%;
 	padding: 15px;
 	box-sizing: border-box;
 	height: 400px;
