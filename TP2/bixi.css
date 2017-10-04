@@ -28,7 +28,7 @@ header a:hover {
 }
 
 .nav-tabs>li.active>a {
-	background-color: #38d17f !important; 
+	background-color: #38d17f !important;
 	color: white !important;
 }
 
@@ -40,6 +40,18 @@ header a:hover {
 	font-size: 200%;
 }
 
+input {
+  width: 100%;
+}
+
+/* State Table */
+.green {
+  background-color: #18FF6D;
+}
+
+.red {
+  background-color: #D33E43;
+}
 
 #carte {
 	display: flex;
@@ -47,14 +59,14 @@ header a:hover {
 }
 
 #location{
-	flex-basis: 50%;
+	flex-basis: 40%;
 	border-right: 1px lightgrey solid;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
 #state {
-	flex-basis: 50%;
+	flex-basis: 60%;
 	padding: 15px;
 	box-sizing: border-box;
 }
