@@ -3,15 +3,15 @@
 
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="bixi.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjonwWBWoE1W6L8sU7KPl7zkRLSaPNC2o"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="bixi.css">
 		<title>Bixi</title>
 	</head>
 	<body>
@@ -48,27 +48,27 @@
 							<tbody>
 								<tr>
 									<td>ID Station</td>
-									<td class="station-info" id="station-id">-</td>
+									<td><span class="badge" id="station-id">-</span></td>
 									<td>Vélos disponibles</td>
-									<td class="station-info" id="station-bicycles-availaible">-</td>
+									<td><span class="badge" id="station-bicycles-availaible">-</span></td>
 								</tr>
 								<tr>
 									<td>Bloquée</td>
-									<td class="station-info" id="station-blocked">-</td>
+									<td><span class="badge" id="station-blocked">-</span></td>
 									<td>Bornes disponibles</td>
-									<td class="station-info" id="station-terminals-availaible">-</td>
+									<td><span class="badge" id="station-terminals-availaible">-</span></td>
 								</tr>
 								<tr>
 									<td>Suspendue</td>
-									<td class="station-info" id="station-suspended">-</td>
+									<td><span class="badge" id="station-suspended">-</span></td>
 									<td>Vélos indisponibles</td>
-									<td class="station-info" id="station-bicycles-unavailaible">-</td>
+									<td><span class="badge" id="station-bicycles-unavailaible">-</span></td>
 								</tr>
 								<tr>
 									<td>Hors service</td>
-									<td class="station-info" id="station-ooo">-</td>
+									<td><span class="badge" id="station-ooo">-</span></td>
 									<td>Bornes indisponibles</td>
-									<td class="station-info" id="station-terminals-unavailaible">-</td>
+									<td><span class="badge" id="station-terminals-unavailaible">-</span></td>
 								</tr>
 							</tbody>
 						</table>

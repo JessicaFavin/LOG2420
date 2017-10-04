@@ -28,7 +28,7 @@ header a:hover {
 }
 
 .nav-tabs>li.active>a {
-	background-color: #38d17f !important; 
+	background-color: #38d17f !important;
 	color: white !important;
 }
 
@@ -40,9 +40,21 @@ header a:hover {
 	font-size: 200%;
 }
 
+input {
+  width: 100%;
+}
+
+/* State Table */
+.green {
+  background-color: #18FF6D;
+}
+
+.red {
+  background-color: #D33E43;
+}
 
 #location{
-	width: 50%;
+	width: 40%;
 	display: inline-block;
 	border-right: 1px lightgrey solid;
 	padding: 15px;
@@ -50,7 +62,7 @@ header a:hover {
 }
 
 #state {
-	width: 50%;
+	width: 60%;
 	display: inline-block;
 	float: right;
 	padding: 15px;
