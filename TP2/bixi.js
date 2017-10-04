@@ -15,42 +15,60 @@ function getCSSClass(bool) {
   }
 }
 
+function mapJsonToDisplayedData(stations) {
+  return stations.map(function(station){
+    return {
+      id: station.id,
+      name: station.s,
+      blocked: station.b,
+      bicycles_available: station.ba,
+      bicycles_unavailable: station.bx,
+      terminals_available: station.da,
+      terminals_unavailable: station.dx,
+      suspended: station.su,
+      out_of_order: station.m,
+      latitude: station.la,
+      longitude: station.lo
+    }
+  });
+}
+
 // Display Info into table
 function displayStationInfo(station) {
-  $('#location-name').text(station.s);
+  $('#location-name').text(station.name);
   $('#station-id').text(station.id);
 
   $('#station-blocked')
     .removeClass("green red")
-    .addClass(getCSSClass(station.b))
-    .text(getStringFromBoolean(station.b));
+    .addClass(getCSSClass(station.blocked))
+    .text(getStringFromBoolean(station.blocked));
   $('#station-suspended')
     .removeClass("green red")
-    .addClass(getCSSClass(station.su))
-    .text(getStringFromBoolean(station.su));
+    .addClass(getCSSClass(station.suspended))
+    .text(getStringFromBoolean(station.suspended));
   $('#station-ooo')
     .removeClass("green red")
-    .addClass(getCSSClass(station.m))
-    .text(getStringFromBoolean(station.m));
+    .addClass(getCSSClass(station.out_of_order))
+    .text(getStringFromBoolean(station.out_of_order));
 
   $('#station-bicycles-availaible')
     .removeClass("green red")
-    .text(station.ba);
+    .text(station.bicycles_available);
 
-  $('#station-bicycles-availaible').addClass(getCSSClass(station.ba == 0));
+  $('#station-bicycles-availaible').addClass(getCSSClass(station.bicycles_available == 0));
 
   $('#station-terminals-availaible')
     .removeClass("green red")
-    .text(station.da);
+    .text(station.terminals_available);
 
-  $('#station-terminals-availaible').addClass(getCSSClass(station.da == 0));
+  $('#station-terminals-availaible').addClass(getCSSClass(station.terminals_available == 0));
 
-  $('#station-bicycles-unavailaible').text(station.bx);
-  $('#station-terminals-unavailaible').text(station.dx);
+  $('#station-bicycles-unavailaible').text(station.bicycles_unavailable);
+  $('#station-terminals-unavailaible').text(station.terminals_unavailable);
 }
 
 function updateMap(station) {
-	pos = {lat: station.la, lng: station.lo};
+	pos = {lat: station.latitude, lng: station.longitude};
 	map = new google.maps.Map(document.getElementById('map'), {
 	  center: pos,
 	  zoom: 17
@@ -76,8 +94,9 @@ $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
         return station
       }
     });
-    displayStationInfo(stationInfo[0]);
-    updateMap(stationInfo[0]);
+    station = mapJsonToDisplayedData(stationInfo)[0]
+    displayStationInfo(station);
+    updateMap(station);
   }
 
 
@@ -87,7 +106,7 @@ $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
       source: stationNames,
       select: fieldSelected
     });
-	
+
 	var montreal = {lat: 45.5016889, lng: -73.5672559};
     var map = new google.maps.Map(document.getElementById('map'), {
 		  center: montreal,
