@@ -70,5 +70,13 @@
   "suspended_state" : {
     "fr": "Etat suspendu",
     "en": "Suspended state"
+  },
+  "yes" : {
+    "fr" : "Oui",
+    "en" : "Yes"
+  },
+  "no" : {
+    "fr" : "Non",
+    "en" : "No"
   }
 }

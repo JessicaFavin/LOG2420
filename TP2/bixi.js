@@ -19,7 +19,7 @@ function getCSSClass(bool) {
 
 // Display Info into table
 function displayStationInfo(station) {
-  $('#location-name').text(station.name);
+  $('#location_name').text(station.name);
   $('#station-id').text(station.id);
 
   $('#station-blocked')

@@ -16,14 +16,16 @@
 		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
 		<script src="modules/stations.js" type = "text/javascript" language = "javascript"></script>
 		<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
+		<script src="modules/text.js" type = "text/javascript" language = "javascript"></script>
+		<script src="text-checker.js" type = "text/javascript" language = "javascript"></script>
 
 		<title>Bixi</title>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<a href="#" class="brand"><div>Vélo Montréal</div></a>
-				<a href="#" ><div>Accueil</div></a>
+				<a href="#" class="brand"><div id='title'>Vélo Montréal</div></a>
+				<a href="#" ><div id='home'>Accueil</div></a>
 				<a href="#" class="globe"><div><i class="fa fa-globe" aria-hidden="true"></i></div></a>
 			</nav>
 		</header>
@@ -31,8 +33,8 @@
 
 		<main>
 			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#carte">Carte des stations</a></li>
-				<li><a data-toggle="tab" href="#liste">Liste  des stations</a></li>
+				<li class="active"><a data-toggle="tab" href="#carte" id='stations_map'>Carte des stations</a></li>
+				<li><a data-toggle="tab" href="#liste" id='station_list_text_tab'>Liste  des stations</a></li>
 			</ul>
 
 			<div class="tab-content">
@@ -43,9 +45,9 @@
 						<div class="ui-widget">
 							<input type="text" name="station-name" value="" id="station-name-id">
 						</div>
-						<h3>Localisation:</h3>
+						<h3 id="location_text">Localisation:</h3>
 						<hr>
-						<h4 id="location-name">Aucune Localisation</h4>
+						<h4 id="location_name">Aucune localisation</h4>
 					</div><div id="state">
 						<h3>État de la station de vélos</h3>
 						<table class="table table-stripped">
@@ -53,27 +55,27 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>ID Station</td>
+									<td id="table_state_id">ID Station</td>
 									<td><span class="badge" id="station-id">-</span></td>
-									<td>Vélos disponibles</td>
+									<td id="table_state_ba">Vélos disponibles</td>
 									<td><span class="badge" id="station-bicycles-availaible">-</span></td>
 								</tr>
 								<tr>
-									<td>Bloquée</td>
+									<td id="table_state_blocked">Bloquée</td>
 									<td><span class="badge" id="station-blocked">-</span></td>
-									<td>Bornes disponibles</td>
+									<td id="table_state_ta">Bornes disponibles</td>
 									<td><span class="badge" id="station-terminals-availaible">-</span></td>
 								</tr>
 								<tr>
-									<td>Suspendue</td>
+									<td id="table_state_suspended">Suspendue</td>
 									<td><span class="badge" id="station-suspended">-</span></td>
-									<td>Vélos indisponibles</td>
+									<td id="table_state_bu">Vélos indisponibles</td>
 									<td><span class="badge" id="station-bicycles-unavailaible">-</span></td>
 								</tr>
 								<tr>
-									<td>Hors service</td>
+									<td id="table_state_ooo">Hors service</td>
 									<td><span class="badge" id="station-ooo">-</span></td>
-									<td>Bornes indisponibles</td>
+									<td id="table_state_tu">Bornes indisponibles</td>
 									<td><span class="badge" id="station-terminals-unavailaible">-</span></td>
 								</tr>
 							</tbody>
@@ -88,11 +90,11 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Nom Station</th>
-								<th>Vélos disponibles</th>
-								<th>Bornes disponibles</th>
-								<th>État bloqué</th>
-								<th>État suspendu</th>
+								<th id="table_list_name">Nom Station</th>
+								<th id="table_list_b">Vélos disponibles</th>
+								<th id="table_list_t">Bornes disponibles</th>
+								<th id="table_list_blocked">État bloqué</th>
+								<th id="table_list_suspended">État suspendu</th>
 							</tr>
 						</thead>
 						<tbody>
