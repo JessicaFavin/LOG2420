@@ -85,56 +85,37 @@ function fieldSelected(event, ui, map, markers) {
 function loadTable() {
   STATIONS.getStations(function(stations){
 
+    var lang;
     if(TEXT.getLang() === 'fr') {
-      $('#table').dataTable({
-        'destroy': true,
-        'aaData': stations,
-        'aoColumns' : [
-          { 'mDataProp': 'id' },
-          { 'mDataProp': 'name' },
-          { 'mDataProp': 'bicycles_available' },
-          { 'mDataProp': 'terminals_available' },
-          { 'mDataProp': 'blocked',
-            'render' : function(data, type, row, meta) {
-                return getStringFromBoolean(data);
-              }
-          },
-          { 'mDataProp': 'suspended',
-            'render' : function(data, type, row, meta) {
-                return getStringFromBoolean(data);
-              }
-          }
-        ],
-        'language': {
-          'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/French.json'
-        }
-        });
-
+      lang = "French";
     } else {
-      $('#table').dataTable({
-        'destroy': true,
-        'aaData': stations,
-        'aoColumns' : [
-          { 'mDataProp': 'id' },
-          { 'mDataProp': 'name' },
-          { 'mDataProp': 'bicycles_available' },
-          { 'mDataProp': 'terminals_available' },
-          { 'mDataProp': 'blocked',
-            'render' : function(data, type, row, meta) {
-                return getStringFromBoolean(data);
-              }
-          },
-          { 'mDataProp': 'suspended',
-            'render' : function(data, type, row, meta) {
-                return getStringFromBoolean(data);
-              }
-          }
-        ],
-        'language': {
-          'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/English.json'
-        }
-        });
+      lang = "English"
     }
+
+    $('#table').dataTable({
+      'destroy': true,
+      'aaData': stations,
+      'aoColumns' : [
+        { 'mDataProp': 'id' },
+        { 'mDataProp': 'name' },
+        { 'mDataProp': 'bicycles_available' },
+        { 'mDataProp': 'terminals_available' },
+        { 'mDataProp': 'blocked',
+          'render' : function(data, type, row, meta) {
+              return getStringFromBoolean(data);
+            }
+        },
+        { 'mDataProp': 'suspended',
+          'render' : function(data, type, row, meta) {
+              return getStringFromBoolean(data);
+            }
+        }
+      ],
+      'language': {
+        'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/'+ lang +'.json'
+      }
+      });
+
   });
 }
 
