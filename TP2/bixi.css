@@ -4,6 +4,11 @@ html, body {
     padding: 0;
 }
 
+nav, main {
+	margin: 0 10%;
+}
+
+/* Navigation menu */
 
 header {
 	background-color: #389bd8;
@@ -12,33 +17,48 @@ header {
 	box-sizing: border-box;
 }
 
-header a {
+nav a {
 	color: white;
 	text-decoration: none;
 	box-sizing: border-box;
 	font-size: 150%;
-	padding: 15px;
+	
 }
 
-header a:hover {
+nav a:hover {
 	color: white;
 	text-decoration: none;
-	background-color: #2b78a8;
 	box-sizing: border-box;
+	
 }
+
+nav div {
+	display: inline-block;
+	padding: 5px 15px;
+}
+
+nav div:hover {
+	background-color: #2b78a8;
+	
+}
+
+.brand{
+	font-weight: bold;
+}
+
+
+.globe {
+	float: right;
+}
+
+/* Active toggle tab */
 
 .nav-tabs>li.active>a {
 	background-color: #38d17f !important;
 	color: white !important;
 }
 
-.globe {
-	float: right;
-}
-
-.brand {
-	font-size: 200%;
-}
+/* Input line*/
 
 input {
   width: 100%;
