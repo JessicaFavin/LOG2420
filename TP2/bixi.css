@@ -6,6 +6,7 @@ html, body {
 
 nav, main {
 	margin: 0 10%;
+	box-sizing: border-box;
 }
 
 /* Navigation menu */
@@ -46,9 +47,32 @@ nav div:hover {
 	font-weight: bold;
 }
 
+/* Langage menu */
 
-.globe {
+.dropdown {
 	float: right;
+	padding: 0;
+}
+
+.dropdown-menu {
+	background-color: white;
+}
+
+.dropdown-menu li a {
+	color: black;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-size: 100%;
+}
+
+.dropdown-menu li a:hover {
+	background-color: #F0F0F0 !important;
+}
+
+.langage-selected a {
+	pointer-events: none;
+	color: white !important;
+	background-color: #38d17f;
 }
 
 /* Active toggle tab */
