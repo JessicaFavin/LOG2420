@@ -17,24 +17,6 @@ function getCSSClass(bool) {
   }
 }
 
-function mapJsonToDisplayedData(stations) {
-  return stations.map(function(station){
-    return {
-      id: station.id,
-      name: station.s,
-      blocked: station.b,
-      bicycles_available: station.ba,
-      bicycles_unavailable: station.bx,
-      terminals_available: station.da,
-      terminals_unavailable: station.dx,
-      suspended: station.su,
-      out_of_order: station.m,
-      latitude: station.la,
-      longitude: station.lo
-    }
-  });
-}
-
 // Display Info into table
 function displayStationInfo(station) {
   $('#location-name').text(station.name);
@@ -88,48 +70,43 @@ function updateMap(station, map, markers) {
 	updateMarker(markers, map, pos)
 }
 
-//Get JSON from bixi
-$.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
-  let stations = json.stations;
-  var stationNames = stations.map(function(station){
-    return station.s;
+function fieldSelected(event, ui, map, markers) {
+  let name = ui.item.value;
+  let station = STATIONS.getStation(name, function(station) {
+    if(!station) {
+      alert('Station not found!');
+    } else {
+      displayStationInfo(station);
+      updateMap(station, map, markers);
+    }
   });
+}
 
-  // Used to handle event when user select a field from autocompletion
-  function fieldSelected(event, ui, map, markers) {
-    var value = ui.item.value;
-    var stationInfo = json.stations.filter(function(station){
-      if(station.s === value) {
-        return station
-      }
+//Get JSON from bixi
+$(document).ready(function(){
+
+  let montreal = {lat: 45.5016889, lng: -73.5672559};
+  var map = new google.maps.Map(document.getElementById('map'), {
+     center: montreal,
+     zoom: 12
     });
-    var station = mapJsonToDisplayedData(stationInfo)[0]
-    displayStationInfo(station);
-    updateMap(station, map, markers);
-  }
 
+  // To keep ref to markers of our map
+  var markers = [];
 
   // Assign autocompletion to input field
-  $(document).ready(function(){
-
-    let montreal = {lat: 45.5016889, lng: -73.5672559};
-    var map = new google.maps.Map(document.getElementById('map'), {
-  	   center: montreal,
-  		 zoom: 12
-  		});
-
-    // To keep ref to markers of our map
-    var markers = [];
-
+  STATIONS.getStationNames(function(names){
     $('#station-name-id').autocomplete({
-      source: stationNames,
+      source: names,
       select: function(event, ui) {
         fieldSelected(event, ui, map, markers);
       }
     });
+  });
 
+  STATIONS.getStations(function(stations){
     $('#table').dataTable({
-    'aaData': mapJsonToDisplayedData(stations),
+    'aaData': stations,
     'aoColumns' : [
       { 'mDataProp': 'id' },
       { 'mDataProp': 'name' },
@@ -147,7 +124,5 @@ $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
       }
       ]
     });
-
   });
-
 });
