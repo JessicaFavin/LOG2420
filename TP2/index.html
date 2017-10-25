@@ -3,15 +3,19 @@
 
 	<head>
 		<meta charset="utf-8">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  	<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjonwWBWoE1W6L8sU7KPl7zkRLSaPNC2o"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="bixi.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjonwWBWoE1W6L8sU7KPl7zkRLSaPNC2o"></script>
  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<link rel="stylesheet" href="bixi.css">
+		<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
+		<script src="bixi.js" type = "text/javascript" language = "javascript"></script>
+
 		<title>Bixi</title>
 	</head>
 	<body>
@@ -30,7 +34,7 @@
 			</ul>
 
 			<div class="tab-content">
-				
+
 				<div id="carte" class="tab-pane fade in active">
 					<div id="location">
 
@@ -75,10 +79,10 @@
 					</div>
 					<div id="map"></div>
 				</div>
-				
+
 				<div id="liste" class="tab-pane fade">
 					<h3>Liste  des stations</h3>
-					<table class="table table-stripped">
+					<table class="table table-stripped" id="table">
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -93,7 +97,7 @@
 						</tbody>
 					</table>
 				</div>
-				
+
 			</div>
 		</main>
 	</body>

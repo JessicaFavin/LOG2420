@@ -1,3 +1,5 @@
+'use strict';
+
 function getStringFromBoolean(bool) {
   if(bool) {
     return 'Oui';
@@ -67,54 +69,85 @@ function displayStationInfo(station) {
   $('#station-terminals-unavailaible').text(station.terminals_unavailable);
 }
 
-function updateMap(station) {
-	pos = {lat: station.latitude, lng: station.longitude};
-	map = new google.maps.Map(document.getElementById('map'), {
-	  center: pos,
-	  zoom: 17
-	});
-	var marker = new google.maps.Marker({
+function updateMarker(markers, map, pos) {
+  markers.forEach(function(marker){
+    marker.setMap(null);
+  });
+  let marker = new google.maps.Marker({
 	  position: pos,
 	  map: map
 	});
+  markers = []
+  markers.push(marker);
+}
 
+function updateMap(station, map, markers) {
+	let pos = {lat: station.latitude, lng: station.longitude};
+  map.setCenter(pos);
+  map.setZoom(17);
+	updateMarker(markers, map, pos)
 }
 
 //Get JSON from bixi
 $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
-  var stationNames = json.stations.map(function(station){
+  let stations = json.stations;
+  var stationNames = stations.map(function(station){
     return station.s;
   });
 
   // Used to handle event when user select a field from autocompletion
-  function fieldSelected(event, ui) {
+  function fieldSelected(event, ui, map, markers) {
     var value = ui.item.value;
     var stationInfo = json.stations.filter(function(station){
       if(station.s === value) {
         return station
       }
     });
-    station = mapJsonToDisplayedData(stationInfo)[0]
+    var station = mapJsonToDisplayedData(stationInfo)[0]
     displayStationInfo(station);
-    updateMap(station);
+    updateMap(station, map, markers);
   }
 
 
   // Assign autocompletion to input field
   $(document).ready(function(){
+
+    let montreal = {lat: 45.5016889, lng: -73.5672559};
+    var map = new google.maps.Map(document.getElementById('map'), {
+  	   center: montreal,
+  		 zoom: 12
+  		});
+
+    // To keep ref to markers of our map
+    var markers = [];
+
     $('#station-name-id').autocomplete({
       source: stationNames,
-      select: fieldSelected
+      select: function(event, ui) {
+        fieldSelected(event, ui, map, markers);
+      }
     });
 
-	var montreal = {lat: 45.5016889, lng: -73.5672559};
-    var map = new google.maps.Map(document.getElementById('map'), {
-		  center: montreal,
-		  zoom: 12
-		});
+    $('#table').dataTable({
+    'aaData': mapJsonToDisplayedData(stations),
+    'aoColumns' : [
+      { 'mDataProp': 'id' },
+      { 'mDataProp': 'name' },
+      { 'mDataProp': 'bicycles_available' },
+      { 'mDataProp': 'terminals_available' },
+      { 'mDataProp': 'blocked',
+        'render' : function(data, type, row, meta) {
+            return getStringFromBoolean(data);
+          }
+      },
+      { 'mDataProp': 'suspended',
+        'render' : function(data, type, row, meta) {
+            return getStringFromBoolean(data);
+          }
+      }
+      ]
+    });
+
   });
-
-
-
 
 });
