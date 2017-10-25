@@ -3,6 +3,7 @@
 function switchLanguage(lang) {
   TEXT.setLang(lang);
   updateText();
+  loadTable();
 }
 
 function updateText() {

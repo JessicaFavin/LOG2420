@@ -82,6 +82,62 @@ function fieldSelected(event, ui, map, markers) {
   });
 }
 
+function loadTable() {
+  STATIONS.getStations(function(stations){
+
+    if(TEXT.getLang() === 'fr') {
+      $('#table').dataTable({
+        'destroy': true,
+        'aaData': stations,
+        'aoColumns' : [
+          { 'mDataProp': 'id' },
+          { 'mDataProp': 'name' },
+          { 'mDataProp': 'bicycles_available' },
+          { 'mDataProp': 'terminals_available' },
+          { 'mDataProp': 'blocked',
+            'render' : function(data, type, row, meta) {
+                return getStringFromBoolean(data);
+              }
+          },
+          { 'mDataProp': 'suspended',
+            'render' : function(data, type, row, meta) {
+                return getStringFromBoolean(data);
+              }
+          }
+        ],
+        'language': {
+          'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/French.json'
+        }
+        });
+
+    } else {
+      $('#table').dataTable({
+        'destroy': true,
+        'aaData': stations,
+        'aoColumns' : [
+          { 'mDataProp': 'id' },
+          { 'mDataProp': 'name' },
+          { 'mDataProp': 'bicycles_available' },
+          { 'mDataProp': 'terminals_available' },
+          { 'mDataProp': 'blocked',
+            'render' : function(data, type, row, meta) {
+                return getStringFromBoolean(data);
+              }
+          },
+          { 'mDataProp': 'suspended',
+            'render' : function(data, type, row, meta) {
+                return getStringFromBoolean(data);
+              }
+          }
+        ],
+        'language': {
+          'url': '//cdn.datatables.net/plug-ins/1.10.16/i18n/English.json'
+        }
+        });
+    }
+  });
+}
+
 //Get JSON from bixi
 $(document).ready(function(){
 
@@ -104,25 +160,5 @@ $(document).ready(function(){
     });
   });
 
-  STATIONS.getStations(function(stations){
-    $('#table').dataTable({
-    'aaData': stations,
-    'aoColumns' : [
-      { 'mDataProp': 'id' },
-      { 'mDataProp': 'name' },
-      { 'mDataProp': 'bicycles_available' },
-      { 'mDataProp': 'terminals_available' },
-      { 'mDataProp': 'blocked',
-        'render' : function(data, type, row, meta) {
-            return getStringFromBoolean(data);
-          }
-      },
-      { 'mDataProp': 'suspended',
-        'render' : function(data, type, row, meta) {
-            return getStringFromBoolean(data);
-          }
-      }
-      ]
-    });
-  });
+  loadTable();
 });
