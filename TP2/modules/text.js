@@ -9,7 +9,7 @@ var TEXT = (function(){
     text = json;
   });
 
-  function getLang() {
+  self.getLang = function() {
     let l = localStorage.getItem('lang');
     if(!l) {
       localStorage.setItem("lang", "fr")
@@ -31,7 +31,7 @@ var TEXT = (function(){
     if(!text[key]) {
       throw new Error("Wrong key!");
     } else {
-      return text[key][getLang()];
+      return text[key][self.getLang()];
     }
   }
 

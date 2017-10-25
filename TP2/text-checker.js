@@ -14,9 +14,6 @@ function updateText() {
   $('#location_text').text(TEXT.getText('location'));
   // WARNING
   let location = $('#location_name').text();
-  console.log(location);
-  console.log(TEXT.getTextLocalize('no_location', 'fr'));
-  console.log(TEXT.getTextLocalize('no_location', 'en'));
   if(location === TEXT.getTextLocalize('no_location', 'fr') || location === TEXT.getTextLocalize('no_location', 'en')) {
     $('#location_name').text(TEXT.getText('no_location'));
   }
@@ -42,4 +39,22 @@ function updateText() {
 
 $(document).ready(function() {
   updateText();
+
+  let lang = TEXT.getLang();
+  if(lang === 'fr') {
+    $($('.dropdown-menu li')[1]).addClass('language-selected');
+  } else if (lang === 'en') {
+    $($('.dropdown-menu li')[0]).addClass('language-selected');
+  }
+
+  $('.dropdown-menu li').click(function(event){
+    $('.dropdown-menu li').removeClass('language-selected');
+    $(this).addClass('language-selected');
+    let language = $(this).text();
+    if(language === 'English') {
+      switchLanguage('en');
+    } else if(language === 'Français') {
+      switchLanguage('fr');
+    }
+  })
 });
