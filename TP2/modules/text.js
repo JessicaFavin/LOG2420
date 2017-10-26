@@ -45,5 +45,13 @@ var TEXT = (function(){
     }
   }
 
+  self.getTextFromBoolean = function(bool) {
+    if(bool) {
+      return text.yes[self.getLang()];
+    } else {
+      return text.no[self.getLang()];
+    }
+  }
+
   return self;
 })();

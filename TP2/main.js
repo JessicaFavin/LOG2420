@@ -1,11 +1,7 @@
 'use strict';
 
 function getStringFromBoolean(bool) {
-  if(bool) {
-    return 'Oui';
-  } else {
-    return 'Non';
-  }
+  return TEXT.getTextFromBoolean(bool);
 }
 
 function getCSSClass(bool) {
