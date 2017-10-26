@@ -1,10 +1,14 @@
 'use strict';
 
+// Module for stations
+// Load the Json and then keep a reference to it
 var STATIONS = (function(){
   var self = {};
   var stations;
 
-  function mapJsonToDisplayedData(stations) {
+  // Private method to map the loaded JSON
+  // Into our Model
+  function mapJSONintoModel(stations) {
     return stations.map(function(station){
       return {
         id: station.id,
@@ -26,7 +30,7 @@ var STATIONS = (function(){
   self.getStations = function(callback) {
     if(!stations) {
       $.getJSON('https://secure.bixi.com/data/stations.json', function(json) {
-        stations = mapJsonToDisplayedData(json.stations);
+        stations = mapJSONintoModel(json.stations);
         callback(stations)
       });
     } else {
@@ -34,6 +38,8 @@ var STATIONS = (function(){
     }
   }
 
+  // Get all the station names
+  // Paramater callback = function(names)
   self.getStationNames = function(callback) {
     self.getStations(function(stations){
       let names = stations.map(function(s){
@@ -43,6 +49,8 @@ var STATIONS = (function(){
     });
   }
 
+  // Get a specific station from a name
+  // Paramater callback = function(station)
   self.getStation = function(name, callback) {
     self.getStations(function(stations) {
       let station = stations.filter(function(s){

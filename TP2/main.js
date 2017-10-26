@@ -1,9 +1,14 @@
 'use strict';
 
+// Main script
+// Handle the main logic of the app
+
+// Simply facade to TEXT module
 function getStringFromBoolean(bool) {
   return TEXT.getTextFromBoolean(bool);
 }
 
+// Return the correct CSS class according to the bool
 function getCSSClass(bool) {
   if(bool) {
     return 'red';
@@ -47,6 +52,8 @@ function displayStationInfo(station) {
   $('#station-terminals-unavailaible').text(station.terminals_unavailable);
 }
 
+// Update marker of our Map
+// Will unset the previous marker, create a new one and push it to the markers array
 function updateMarker(markers, map, pos) {
   markers.forEach(function(marker){
     marker.setMap(null);
@@ -59,6 +66,7 @@ function updateMarker(markers, map, pos) {
   markers.push(marker);
 }
 
+// Update position and zoom map, and the marker
 function updateMap(station, map, markers) {
 	let pos = {lat: station.latitude, lng: station.longitude};
   map.setCenter(pos);
@@ -66,6 +74,9 @@ function updateMap(station, map, markers) {
 	updateMarker(markers, map, pos)
 }
 
+// To call when the user click on a field from the autocomplete component
+// Will get the station according to the station name
+// Update the view (fields and map)
 function fieldSelected(event, ui, map, markers) {
   let name = ui.item.value;
   let station = STATIONS.getStation(name, function(station) {
@@ -78,7 +89,10 @@ function fieldSelected(event, ui, map, markers) {
   });
 }
 
+// Load the table, according to the current language
+// To call when the language change
 function loadTable() {
+  
   STATIONS.getStations(function(stations){
 
     var lang;
@@ -115,9 +129,9 @@ function loadTable() {
   });
 }
 
-//Get JSON from bixi
 $(document).ready(function(){
 
+  // Map settings
   let montreal = {lat: 45.5016889, lng: -73.5672559};
   var map = new google.maps.Map(document.getElementById('map'), {
      center: montreal,
@@ -137,5 +151,6 @@ $(document).ready(function(){
     });
   });
 
+  // Load Table
   loadTable();
 });
