@@ -90,11 +90,11 @@ input {
 
 /* State Table */
 .green {
-  background-color: #18FF6D;
+  background-color: #38d17f;
 }
 
 .red {
-  background-color: #D33E43;
+  background-color: #CC3D3B;
 }
 
 #location{
