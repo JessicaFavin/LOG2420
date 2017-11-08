@@ -1,18 +1,33 @@
 @charset "iso-8859-1";
 /* CSS Document */
 
-#panel {
-	
-}
 
-#room-temperature {
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
+#room-temp {
 	transform: rotate(-90deg);
-	
+	margin: 20px;
+	margin-top: 50px;
 }
 
 #thermostat {
-	
+	margin: auto;
+}
+
+th {
+	text-align: left;
+}
+
+#left-pane, #center-pane, #right-pane {
+	width: 200px;
+	display: inline-block;
+	height: 300px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.actif {
+	background-color: green;
+}
+
+.inactif {
+	background-color: red;
 }
