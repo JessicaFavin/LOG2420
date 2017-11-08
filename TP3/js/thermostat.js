@@ -36,6 +36,7 @@ $(document).ready(function(){
   let thermostat = new ThermostatObserver();
 
   let chambreObservable = new Observable();
+
   chambreObservable.chrono = function() {
     let self = this;
     setTimeout(() => {
@@ -49,6 +50,7 @@ $(document).ready(function(){
     }, 1000);
   }
   chambreObservable.chrono();
+
   chambreObservable.addObserver(thermometre);
   chambreObservable.addObserver(thermostat);
 });
