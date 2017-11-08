@@ -37,7 +37,7 @@ ThermometreObserver.prototype = {
   },
 
   updateThermometre: function(temperature) {
-    $('#room-temp').attr('value', temperature.toFixed(0))
-    $('#room-temp-value').text(temperature.toFixed(0));
+    $('#room-temp').attr('value', temperature.toFixed(1))
+    $('#room-temp-value').text(temperature.toFixed(1));
   }
 };

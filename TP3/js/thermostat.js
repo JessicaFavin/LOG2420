@@ -23,7 +23,6 @@
   $("#thermostat").slider({
     change: function(event, ui) {
       $("#tdValeurThermostat").text( ui.value );
-      temperatureThermostat = ui.value;
     }
   });
 });
