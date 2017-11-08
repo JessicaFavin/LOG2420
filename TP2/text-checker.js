@@ -1,11 +1,17 @@
 'use strict'
 
+// Script used for text checking and updating
+// Handle all the multi-language logic
+
+// To call whenever the user switch the language
 function switchLanguage(lang) {
+  // Set the language to our TEXT module, updateText and reloadTable
   TEXT.setLang(lang);
   updateText();
   loadTable();
 }
 
+// Set all the text of our app according to the current language
 function updateText() {
   $('#title').text(TEXT.getText('title'));
   $('#home').text(TEXT.getText('home'));
@@ -13,7 +19,9 @@ function updateText() {
 
   $('#station_list_text_tab').text(TEXT.getText('stations_list'));
   $('#location_text').text(TEXT.getText('location'));
+
   // WARNING
+  // Update text only if no location is set
   let location = $('#location_name').text();
   if(location === TEXT.getTextLocalize('no_location', 'fr') || location === TEXT.getTextLocalize('no_location', 'en')) {
     $('#location_name').text(TEXT.getText('no_location'));
@@ -42,12 +50,14 @@ $(document).ready(function() {
   updateText();
 
   let lang = TEXT.getLang();
+  // Set class to the correct button
   if(lang === 'fr') {
     $($('.dropdown-menu li')[1]).addClass('language-selected');
   } else if (lang === 'en') {
     $($('.dropdown-menu li')[0]).addClass('language-selected');
   }
 
+  // Logic for language switching
   $('.dropdown-menu li').click(function(event){
     $('.dropdown-menu li').removeClass('language-selected');
     $(this).addClass('language-selected');
