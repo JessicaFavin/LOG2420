@@ -1,7 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>404 Not Found</title>
-</head><body>
-<h1>Not Found</h1>
-<p>The requested URL /log2420/Lab/ThermoJS/thermostat.html/css/thermostat.css was not found on this server.</p>
-</body></html>
+@charset "iso-8859-1";
+/* CSS Document */
+
+#panel {
+	
+}
+
+#room-temperature {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	
+}
+
+#thermostat {
+	
+}
