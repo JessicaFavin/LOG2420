@@ -36,6 +36,19 @@ $(document).ready(function(){
   let thermostat = new ThermostatObserver();
 
   let chambreObservable = new Observable();
+  chambreObservable.chrono = function() {
+    let self = this;
+    setTimeout(() => {
+      ticTac()
+      let data = {
+        chauffage: chauffage,
+        temperature: temperatureInterieure
+      }
+      self.notifyAll('chambre_updated', data);
+      self.chrono();
+    }, 1000);
+  }
+  chambreObservable.chrono();
   chambreObservable.addObserver(thermometre);
   chambreObservable.addObserver(thermostat);
 });

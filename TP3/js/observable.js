@@ -2,7 +2,6 @@
 
 var Observable = function() {
   this.observers = new Array();
-  this.run();
 };
 
 Observable.prototype = {
@@ -22,19 +21,5 @@ Observable.prototype = {
     this.observers.forEach(function(o){
       o.update(msg, data);
     });
-  },
-
-  run: function() {
-    let self = this;
-    setTimeout(() => {
-      ticTac()
-      let data = {
-        chauffage: chauffage,
-        temperature: temperatureInterieure
-      }
-      self.notifyAll('chambre_updated', data);
-      self.run();
-    }, 1000);
   }
-
 };
