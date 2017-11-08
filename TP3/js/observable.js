@@ -1,7 +1,6 @@
 'use strict';
 
-var Observable = function(data) {
-  this.data = data;
+var Observable = function() {
   this.observers = new Array();
   this.run();
 };
@@ -19,17 +18,22 @@ Observable.prototype = {
       }
   },
 
-  notifyAll: function(msg) {
+  notifyAll: function(msg, data) {
     this.observers.forEach(function(o){
-      o.update(msg, this.data);
+      o.update(msg, data);
     });
   },
 
   run: function() {
+    let self = this;
     setTimeout(() => {
-      data.callback();
-      this.notifyAll('chambre_updated');
-      this.run();
+      ticTac()
+      let data = {
+        chauffage: chauffage,
+        temperature: temperatureInterieure
+      }
+      self.notifyAll('chambre_updated', data);
+      self.run();
     }, 1000);
   }
 

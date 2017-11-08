@@ -23,6 +23,7 @@
   $("#thermostat").slider({
     change: function(event, ui) {
       $("#tdValeurThermostat").text( ui.value );
+      temperatureThermostat = ui.value;
     }
   });
 });
@@ -34,13 +35,7 @@ $(document).ready(function(){
   let thermometre = new ThermometreObserver();
   let thermostat = new ThermostatObserver();
 
-  // Set the observable
-  let data = {
-    chauffage: chauffage,
-    temperatureInterieure: temperatureInterieure,
-    callback: ticTac
-  };
-  let chambreObservable = new Observable(data);
+  let chambreObservable = new Observable();
   chambreObservable.addObserver(thermometre);
   chambreObservable.addObserver(thermostat);
 });

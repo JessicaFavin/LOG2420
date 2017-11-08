@@ -4,14 +4,16 @@ function updateChauffage(chauffage) {
   $('#heating-state').removeClass('actif inactif');
   if(chauffage) {
     $('#heating-state').addClass('actif');
+    $('#heating-state').text('Actif');
   } else {
     $('#heating-state').addClass('inactif');
+    $('#heating-state').text('Inactif');
   }
 }
 
 function updateThermometre(temperature) {
-  $('#room-temp').attr('value', temperature)
-  $('#room-temp-value').text(temperature);
+  $('#room-temp').attr('value', temperature.toFixed(0))
+  $('#room-temp-value').text(temperature.toFixed(0));
 }
 
 
@@ -30,7 +32,7 @@ var ThermometreObserver = function() {};
 
 ThermometreObserver.prototype.update = function(msg, data) {
   if(msg === 'chambre_updated') {
-    let temperature = data.temperatureInterieure;
+    let temperature = data.temperature;
     updateThermometre(temperature);
   }
 };
