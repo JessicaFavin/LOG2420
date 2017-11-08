@@ -1,7 +1,9 @@
 'use strict';
 
-var Observable = function() {
+var Observable = function(data) {
+  this.data = data;
   this.observers = new Array();
+  this.run();
 };
 
 Observable.prototype = {
@@ -17,9 +19,18 @@ Observable.prototype = {
       }
   },
 
-  notifyObserver: function(msg, data) {
-    observers.forEach(function(o){
-      o.didReceiveMessage(msg, data);
+  notifyAll: function(msg) {
+    this.observers.forEach(function(o){
+      o.update(msg, this.data);
     });
+  },
+
+  run: function() {
+    setTimeout(() => {
+      data.callback();
+      this.notifyAll('chambre_updated');
+      this.run();
+    }, 1000);
   }
+
 };

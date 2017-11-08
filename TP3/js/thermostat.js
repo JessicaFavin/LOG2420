@@ -28,16 +28,19 @@
 });
 /*********************Ne pas modifier***********************/
 
-function move() {
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++;
-            elem.style.width = width + '%';
-        }
-    }
-}
+$(document).ready(function(){
+
+  // Set the Observers
+  let thermometre = new ThermometreObserver();
+  let thermostat = new ThermostatObserver();
+
+  // Set the observable
+  let data = {
+    chauffage: chauffage,
+    temperatureInterieure: temperatureInterieure,
+    callback: ticTac
+  };
+  let chambreObservable = new Observable(data);
+  chambreObservable.addObserver(thermometre);
+  chambreObservable.addObserver(thermostat);
+});
