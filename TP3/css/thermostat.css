@@ -13,7 +13,7 @@ body {
 #room-temp {
 	transform: rotate(-90deg);
 	margin: 20px;
-	margin-top: 50px;
+	margin-top: 70px;
 }
 
 
@@ -73,5 +73,5 @@ meter::-moz-meter-bar {
 
 #thermometre {
 	position: relative;
-	top: 35px;
+	top: 45px;
 }
