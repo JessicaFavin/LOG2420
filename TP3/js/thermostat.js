@@ -28,14 +28,22 @@
 });
 /*********************Ne pas modifier***********************/
 
+
+/**
+ * Code qui va créer les observers et l'observable,
+ * paramétrer l'observable avec chrono(),
+ * et ajouter les observers à l'observable.
+ */
 $(document).ready(function(){
 
-  // Set the Observers
+  // Init Observers
   let thermometre = new ThermometreObserver();
   let thermostat = new ThermostatObserver();
 
+  // Init Observable
   let chambreObservable = new Observable();
 
+  // Setup chrono() pour chambreObservable
   chambreObservable.chrono = function() {
     let self = this;
     setTimeout(() => {
@@ -50,6 +58,7 @@ $(document).ready(function(){
   }
   chambreObservable.chrono();
 
+  // Ajoute les observers à l'observable
   chambreObservable.addObserver(thermometre);
   chambreObservable.addObserver(thermostat);
 });
