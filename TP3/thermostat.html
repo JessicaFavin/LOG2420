@@ -3,23 +3,26 @@
 
 	<head>
 		<meta charset="utf-8"><link rel="stylesheet" href="./css/thermostat.css">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<meta charset="utf-8"><link rel="stylesheet" href="./css/jquery-ui-slider-pips.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
 		<script src="./js/chambre.js" type = "text/javascript" language = "javascript"></script>
 		<script src="./js/observable.js" type = "text/javascript" language = "javascript"></script>
 		<script src="./js/observers.js" type = "text/javascript" language = "javascript"></script>
 		<script src="./js/thermostat.js" type = "text/javascript" language = "javascript"></script>
+		<script src="./js/jquery-ui-slider-pips.js" type = "text/javascript" language = "javascript"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<title>Thermostat</title>
 	</head>
 	<body>
-		<h1>Thermostat</h1>
+		<h1 id="title">Thermostat</h1>
 		<div id="panel">
-			<div id="left-pane">
+			<div class="pane">
 				<meter id="room-temp" value="" min="-50" max="50">-30 </meter>
-				<p>Thermomètre <span id="room-temp-value"></span>°C</p>
+				<p id="thermometre">Thermomètre <span id="room-temp-value"></span>°C</p>
 			</div>
-			<div id="center-pane">
+			<div class="pane">
 			<table style="width:100%">
 				<tr>
 					<th>Chauffage</th>
@@ -27,15 +30,15 @@
 				</tr>
 				<tr>
 					<th>Température externe</th>
-					<td id="ext-temp">0</td>
+					<td><span id="ext-temp">0</span>°C</td>
 				</tr>
 				<tr>
 					<th>Thermostat</th>
-					<td id="tdValeurThermostat">20</td>
+					<td><span id="tdValeurThermostat">20</span>°C</td>
 				</tr>
 			</table>
 			</div>
-			<div id="right-pane">
+			<div class="pane">
 				<div id="thermostat"></div>
 				<p>Thermostat</p>
 			</div>

@@ -16,7 +16,7 @@
   {
     orientation: 'vertical',
     max: 40 ,
-    value:temperatureThermostat,
+    value: temperatureThermostat,
     min: -10 ,
     step: 1
   });
@@ -25,6 +25,7 @@
       $("#tdValeurThermostat").text( ui.value );
     }
   });
+  $("#thermostat").slider("pips",{step: 10, rest: "label", suffix: "°C"});
 });
 /*********************Ne pas modifier***********************/
 
