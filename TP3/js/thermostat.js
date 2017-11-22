@@ -55,7 +55,7 @@ $(document).ready(function(){
       }
       self.notifyAll('chambre_updated', data);
       self.chrono();
-    }, 1000);
+    }, 500);
   }
   chambreObservable.chrono();
 
